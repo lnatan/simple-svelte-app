@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+// Customization
+
+// 1. Import the initial variables
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+
+// 2. Set your own initial variables
+$blue: #06bcef;
+$pink: red;
+$pink-invert: #fff;
+
+// 3. Set your own derived variables
+$text: $grey-darker !default;
+$family-secondary:  'Raleway', sans-serif;
+
+// 4. Set the derived variables
+// @import "../../node_modules/bulma/sass/utilities/_all.sass";
+// @import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../node_modules/bulma/sass/utilities/functions.sass";
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "../../node_modules/bulma/sass/utilities/mixins.sass";
+@import "../../node_modules/bulma/sass/utilities/controls.sass";

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+  font-family: 'Lato', sans-serif;
+}
+
+.thumb-placeholder {
+  background: grey; 
+  width: 342px;
+  height: 484px;
+}

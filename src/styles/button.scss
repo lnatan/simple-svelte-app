@@ -1,0 +1,7 @@
+@import "../styles/variables.scss";
+
+$control-border-width: 1px !default;
+$button-focus-color: $link-hover;
+$button-focus-box-shadow-color: transparent;
+
+@import '../../node_modules/bulma/sass/elements/button.sass';

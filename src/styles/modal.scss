@@ -1,0 +1,18 @@
+@import "../styles/variables.scss";
+
+$modal-background-background-color: #ffffff;
+
+.modal-close {
+  box-shadow: none;
+
+  &::before,
+  &::after {
+    background-color: $grey;
+  }
+
+  &:hover {
+    background-color: inherit;
+  }
+}
+
+@import "../../node_modules/bulma/sass/components/modal.sass";
