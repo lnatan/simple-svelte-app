@@ -14,8 +14,7 @@
   let sortTypeFn;  
 
   $: sortedMovies = sortTypeFn === 'default' ? $movieStore : [...$movieStore].sort(sortTypeFn);
-  $: console.log('Movie store: ', sortedMovies);
-
+  
   const URL = UPCOMING + currentDate;
 
   onMount(() => {
@@ -54,7 +53,7 @@
 </script>
 
 <style global lang='scss'>
-  @import "./styles/app.scss";
+  @import './styles/app.scss';
   h1 {
     font-size: $size-2;
     font-family: $family-secondary;
@@ -64,6 +63,7 @@
   }
   .loading {
     font-size: $size-4;
+    height: calc(100vh - 200px);
     text-align: center;
     padding: 1em 0;    
   }
@@ -73,7 +73,7 @@
   <h1>Upcoming movies</h1>  
   <Controls on:select={setSorting}/>
   {#if isLoading}
-    <p class="loading">...Is loading</p>
+    <div class="loading">...Is loading</div>
   {:else}
     <MovieGrid
       movies={sortedMovies}

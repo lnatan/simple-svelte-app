@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "bulma": "^0.7.5",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.18",
@@ -17,6 +18,7 @@
     "svelte-preprocess": "^3.1.1"
   },
   "scripts": {
+    "deploy": "gh-pages -d public",
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",

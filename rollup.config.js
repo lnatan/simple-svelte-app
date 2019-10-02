@@ -16,17 +16,6 @@ export default {
 		file: 'public/bundle.js'
 	},
 	plugins: [
-		// svelte({
-		// 	// enable run-time checks when not in production
-		// 	dev: !production,			
-		// 	// we'll extract any component CSS out into
-		// 	// a separate file — better for performance
-		// 	preprocess: sveltePreprocess()
-		// }),
-		// scss({
-		// 	outputStyle: 'expanded'
-		// }),
-
 		svelte({
       dev: !production,
 			preprocess: sveltePreprocess(),

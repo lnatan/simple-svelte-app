@@ -2,8 +2,6 @@
   import { createEventDispatcher } from 'svelte';
   import { URL_IMG, IMG_SIZE_LARGE } from '../api';
      
-  const dispatch = createEventDispatcher();
-  
   export let title;
   export let poster;
   export let rate;
@@ -17,16 +15,16 @@
   //   console.log('Card ' + id + ' onMount');
   // });
 
+  const dispatch = createEventDispatcher();
+
   function handleClick() {
     const position = {};
     const imageSize = {};
 
     position.top = card.getBoundingClientRect().top;
-    console.log(card.offsetTop, card.offsetParent);
     position.left = card.getBoundingClientRect().left;
     imageSize.width = card.querySelector('img').offsetWidth;
-    imageSize.height = card.querySelector('img').offsetHeight;
-    
+    imageSize.height = card.querySelector('img').offsetHeight;    
     dispatch('click', { id, position, imageSize });
   }
 </script>
@@ -63,8 +61,8 @@
 </style>
 
 <div class="card card-link" 
-    class:is-invisible={invisible}
     bind:this={card} 
+    class:is-invisible={invisible}    
     on:click|preventDefault={handleClick}>
   <figure class="card-image image" class:thumb-placeholder={!poster}>
     <img src="{URL_IMG+IMG_SIZE_LARGE+poster}" alt={title}>

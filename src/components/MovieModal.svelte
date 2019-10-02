@@ -6,11 +6,9 @@
   import { fade } from 'svelte/transition';
   import { URL_IMG, IMG_SIZE_LARGE } from '../api';
 
-	const dispatch = createEventDispatcher();
-  
   export let id;
   export let position;
-  export let imageSize; 
+  export let imageSize;  
 
   let disableClick = false;  // disable click when animation
 
@@ -35,7 +33,9 @@
     y2: endTop
   };
 
-  console.log(animationOpt);
+  const scrollY = window.scrollY;
+
+  const dispatch = createEventDispatcher();
 
   function handleClick() {    
     if ( disableClick ) return false;
@@ -84,19 +84,20 @@
     <div class="modal-body" 
       style={modalBodyStyle} 
       transition:animateModal={animationOpt} 
-      on:introstart={() => disableClick = true}>
-        <div class="image" class:thumb-placeholder={!movie.poster_path} style={modalImageStyle}>
-            <img src="{URL_IMG+IMG_SIZE_LARGE+movie.poster_path}" alt={movie.title}>
-        </div>
-        <div class="content" 
-          in:fade={{ delay: 600 }} 
-          out:fade={{ duration: 0 }}
-          on:introend={() => disableClick = false}>    
-            <h2>{movie.title}</h2>
-            <p>{movie.overview}</p>
-            <br>
-            <p>Release date: {movie.release_date}</p>
-            <p>Rating: {movie.popularity}</p>
+      on:introstart={() => disableClick = true}
+      on:outrostart={() => window.scroll(0,scrollY)}>
+      <div class="image" class:thumb-placeholder={!movie.poster_path} style={modalImageStyle}>
+        <img src="{URL_IMG+IMG_SIZE_LARGE+movie.poster_path}" alt={movie.title}>
+      </div>
+      <div class="content" 
+        in:fade={{ delay: 600 }} 
+        out:fade={{ duration: 0 }}
+        on:introend={() => disableClick = false}>    
+          <h2>{movie.title}</h2>
+          <p>{movie.overview}</p>
+          <br>
+          <p>Release date: {movie.release_date}</p>
+          <p>Rating: {movie.popularity}</p>
         </div>
     </div>  
     <button class="modal-close is-large" aria-label="close"/> 

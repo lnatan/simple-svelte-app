@@ -8,6 +8,12 @@
 
 </script>
 
+<style lang='scss'>
+.columns {
+  margin-bottom: 3rem;
+}
+</style>
+
 <div class='columns is-mobile is-centered is-multiline' transition:fade>    
   {#each movies as movie (movie.id)}     
     <div class="column is-narrow" animate:flip={{ duration: 300 }}>
